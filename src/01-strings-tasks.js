@@ -202,8 +202,15 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const dash = '─'.repeat(width - 2);
+  const blank = ' '.repeat(width - 2);
+  const top = `┌${dash}┐\n`;
+  const center = `│${blank}│\n`;
+  const bottom = `└${dash}┘\n`;
+  const result = top + center.repeat(height - 2) + bottom;
+
+  return result;
 }
 
 
@@ -224,6 +231,27 @@ function getRectangleString(/* width, height */) {
  *
  */
 function encodeToRot13(/* str */) {
+  // const indexBegin = 65;
+  // const indexEnd = 122;
+  // const shift = 13;
+  // let result = '';
+
+  // [...str].map(el=>{
+  //   const letterCode = el.toUpperCase.charCodeAt(0);
+  //   let letterShift;
+
+  //   if (el.charCodeAt(0) > indexEnd){
+  //     letterShift = indexBegin + shift;
+  //   } else {
+  //     letterShift = el.charCodeAt(0) + shift;
+  //   }
+
+  //   if(letterCode>= indexBegin && letterCode <= indexEnd ){
+  //     result += String.fromCharCode( + )
+  //   }
+  // });
+
+  // return result.join();
   throw new Error('Not implemented');
 }
 
@@ -240,8 +268,9 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (!value) return false;
+  return typeof value.valueOf() === 'string';
 }
 
 
